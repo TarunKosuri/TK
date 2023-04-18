@@ -1,0 +1,18 @@
+// Identify the dropdown element
+WebElement dropdown = driver.findElement(By.id("myDropdown"));
+
+// Create a Select object
+Select select = new Select(dropdown);
+
+// Get all options in the dropdown
+List<WebElement> options = select.getOptions();
+
+// Loop through each option and select it
+for (WebElement option : options) {
+    select.selectByVisibleText(option.getText());
+
+    // Verify that the option is selected
+    if (!option.isSelected()) {
+        System.out.println("Option not selected: " + option.getText());
+    }
+}
